@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "titulo": "O Senhor dos Anéis",
+    "authorId": 1,
+    "anoPublicacao": 1954
+  },
+  {
+    "id": 2,
+    "titulo": "1984",
+    "authorId": 2,
+    "anoPublicacao": 1949
+  }
+]
