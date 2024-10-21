@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const filePath = path.join(__dirname, `${process.env.DATA_PATH}/books.json`);
 
-console.log(filePath);
 function readBooks() {
   return JSON.parse(fs.readFileSync(filePath, "utf-8"));
 }
