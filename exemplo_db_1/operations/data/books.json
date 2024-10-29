@@ -1,0 +1,36 @@
+[
+  {
+    "id": 3,
+    "authorId": 1,
+    "titulo": "A bela e o monstro",
+    "anoPublicacao": 2015
+  },
+  {
+    "id": 4,
+    "titulo": "A bela e o monstro",
+    "authorId": 1
+  },
+  {
+    "id": 5,
+    "titulo": "A bela e o monstro",
+    "authorId": 1
+  },
+  {
+    "id": 6,
+    "anoPublicacao": 2015,
+    "titulo": "A bela e o monstro",
+    "authorId": "a"
+  },
+  {
+    "id": 7,
+    "anoPublicacao": 2015,
+    "titulo": "A bela e o monstro",
+    "authorId": "a"
+  },
+  {
+    "id": 8,
+    "anoPublicacao": 2015,
+    "titulo": "A bela e o monstro",
+    "authorId": 1
+  }
+]
