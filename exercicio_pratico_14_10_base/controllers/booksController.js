@@ -1,33 +1,52 @@
+const { getAllUsernames, insertUsername } = require("../db/queries");
 const {
   readBooks,
   addOneBook,
   removeBook,
 } = require("../operations/booksOperations");
 
-const getAllBooks = (req, res) => {
-  const books = readBooks();
+const getAllBooks = async (req, res) => {
+  // const books = readBooks();
+
+  // res.json({
+  //   success: true,
+  //   books,
+  // });
+  const rows = await getAllUsernames();
   res.json({
     success: true,
-    books,
+    rows,
   });
 };
 
-const createBook = (req, res) => {
-  if (!req.body.anoPublicacao || !req.body.titulo || !req.body.authorId) {
-    return res.status(400).json("Corpo inesperado");
+const createBook = async (req, res) => {
+  try {
+    const { username } = req.body;
+    await insertUsername(username);
+    return res.status(201).json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+    });
   }
-  const { anoPublicacao, titulo, authorId } = req.body;
+  // if (!req.body.anoPublicacao || !req.body.titulo || !req.body.authorId) {
+  //   return res.status(400).json("Corpo inesperado");
+  // }
+  // const { anoPublicacao, titulo, authorId } = req.body;
 
-  const book = addOneBook({ anoPublicacao, titulo, authorId });
+  // const book = addOneBook({ anoPublicacao, titulo, authorId });
 
-  if (isNaN(parseInt(authorId))) {
-    return res.status(400).json("O ID do autor terá de ser um numero");
-  }
+  // if (isNaN(parseInt(authorId))) {
+  //   return res.status(400).json("O ID do autor terá de ser um numero");
+  // }
 
-  return res.status(201).json({
-    books: readBooks(),
-    createdBook: book,
-  });
+  // return res.status(201).json({
+  //   books: readBooks(),
+  //   createdBook: book,
+  // });
 };
 
 const deleteBook = (req, res) => {
